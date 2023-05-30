@@ -1,0 +1,21 @@
+{
+    "extends": "airbnb",
+    "env": {
+        "browser": true,
+        "jest": true
+    },
+    "rules": {
+        "linebreak-style": 0,
+        "eslint linebreak-style": [0, "error", "windows"],
+        "indent": ["error", 4],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "react/prop-types": 0,
+        "no-param-reassign": ["error", { "props": false }],
+        "react/jsx-no-bind": ["error", {
+            "allowFunctions": true,
+            "allowArrowFunctions": true
+          }],
+          "react/jsx-props-no-spreading": "off"
+    }
+}
