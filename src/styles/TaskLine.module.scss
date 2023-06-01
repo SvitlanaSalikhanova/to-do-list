@@ -1,3 +1,11 @@
+.taskLine:hover .deleteBlock {
+    display: block;
+   }
+
+.deleteBlock {
+    display: none;
+}
+
 .taskLine {
     display: flex;
     align-items: center;
