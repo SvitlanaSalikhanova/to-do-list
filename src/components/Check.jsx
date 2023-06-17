@@ -12,7 +12,7 @@ export default function Check({ item }) {
                 <input
                     type="checkbox"
                     checked={item.isDone}
-                    onClick={() => dispatch(completeTask(item.id))}
+                    onChange={() => dispatch(completeTask(item.id))}
                     id={`checkbox${item.id}`}
                 />
                 <label htmlFor={`checkbox${item.id}`} />

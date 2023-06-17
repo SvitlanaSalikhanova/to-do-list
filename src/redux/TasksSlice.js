@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { SHOW_ACTIVE, SHOW_COMPLETED } from '../FilterConstatnts';
-import { readLocalStorage } from '../repository/repository';
+import { readLocalStorage, writeToLocalStorage } from '../repository/repository';
 
 const initialState = {
     tasks: readLocalStorage() || [],
@@ -24,24 +24,29 @@ export const tasksSlice = createSlice({
     reducers: {
         addTask: (state, action) => {
             state.tasks.push(action.payload);
+            writeToLocalStorage(state.tasks);
         },
 
         deleteTask: (state, action) => {
             state.tasks = state.tasks.filter((elem) => elem.id !== action.payload);
+            writeToLocalStorage(state.tasks);
         },
 
         completeTask: (state, action) => {
             const task = state.tasks.find((elem) => elem.id === action.payload);
             task.isDone = !task.isDone;
+            writeToLocalStorage(state.tasks);
         },
 
         clearCompleted: (state) => {
             state.tasks = state.tasks.filter((elem) => elem.isDone === false);
+            writeToLocalStorage(state.tasks);
         },
 
         reorder: (state, action) => {
             const [removed] = state.tasks.splice(action.payload.startIndex, 1);
             state.tasks.splice(action.payload.endIndex, 0, removed);
+            writeToLocalStorage(state.tasks);
         },
     },
 });

@@ -3,20 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DragDropContext, Draggable } from 'react-beautiful-dnd';
 import TaskLine from '../components/TaskLine';
 import { getActive, addTask, reorder } from '../redux/TasksSlice';
-import { writeToLocalStorage } from '../repository/repository';
 
 import Main from '../components/Main';
 import { SHOW_ALL } from '../FilterConstatnts';
 
 export default function MainController() {
     const tasks = useSelector(getActive);
+
     const filter = useSelector((state) => state.filter.filter);
 
     const dispatch = useDispatch();
 
     const [tempText, setTempText] = React.useState('');
-
-    React.useEffect(() => writeToLocalStorage(tasks), [tasks]);
 
     function addItem(event) {
         if (event.key === 'Enter' && event.target.value) {
