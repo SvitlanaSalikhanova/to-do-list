@@ -3,7 +3,7 @@ import { screen } from '@testing-library/react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import Main from './Main';
 import { renderWithProvider } from '../../test-utils';
-import { draggableWrap } from '../../DraggableWrapper';
+import draggableWrap from '../../DraggableWrapper';
 
 const changeTextMock = jest.fn();
 const addItemMock = jest.fn();

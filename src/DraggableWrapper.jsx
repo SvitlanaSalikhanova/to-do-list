@@ -1,5 +1,5 @@
 import React from 'react';
-import { Draggable, DragDropContext } from 'react-beautiful-dnd';
+import { Draggable } from 'react-beautiful-dnd';
 import TaskLine from './components/taskLine/TaskLine';
 import { SHOW_ALL } from './FilterConstatnts';
 
@@ -26,12 +26,4 @@ function draggableWrap(filter, elem, index) {
     );
 }
 
-function dragAndDropContextWrap({ children }, onDragEnd) {
-    return (
-        <DragDropContext onDragEnd={onDragEnd}>
-            {children}
-        </DragDropContext>
-    );
-}
-
-export { dragAndDropContextWrap, draggableWrap };
+export default draggableWrap;
