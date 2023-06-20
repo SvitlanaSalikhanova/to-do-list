@@ -1,8 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { render, fireEvent, screen } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import store from '../redux/store';
 import Check from './Check';
 
 const UncompletedItem = {
@@ -21,27 +19,21 @@ const onChangeMock = jest.fn();
 describe('Check component tests', () => {
     it('Unchecked Matches Snapshot', () => {
         const domTree = renderer.create(
-            <Provider store={store}>
-                <Check item={UncompletedItem} onChange={onChangeMock} />
-            </Provider>,
+            <Check item={UncompletedItem} onChange={onChangeMock} />,
         ).toJSON();
         expect(domTree).toMatchSnapshot();
     });
 
     it('Checked Matches Snapshot', () => {
         const domTree = renderer.create(
-            <Provider store={store}>
-                <Check item={CompletedItem} onChange={onChangeMock} />
-            </Provider>,
+            <Check item={CompletedItem} onChange={onChangeMock} />,
         ).toJSON();
         expect(domTree).toMatchSnapshot();
     });
 
     it('when clicked calls onChange', () => {
         render(
-            <Provider store={store}>
-                <Check item={UncompletedItem} onChange={onChangeMock} />
-            </Provider>,
+            <Check item={UncompletedItem} onChange={onChangeMock} />,
         );
         const check = screen.getByRole('checkbox');
         fireEvent.click(check);

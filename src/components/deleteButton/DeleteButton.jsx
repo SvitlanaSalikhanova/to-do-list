@@ -1,6 +1,6 @@
 import React from 'react';
 import { BsXLg } from 'react-icons/bs';
-import DeleteButtonCss from '../styles/DeleteButton.module.scss';
+import DeleteButtonCss from './DeleteButton.module.scss';
 
 export default function DeleteButton({ onClick }) {
     return (

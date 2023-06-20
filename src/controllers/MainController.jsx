@@ -1,11 +1,15 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { DragDropContext, Draggable } from 'react-beautiful-dnd';
-import TaskLine from '../components/TaskLine';
-import { getActive, addTask, reorder } from '../redux/TasksSlice';
-
-import Main from '../components/Main';
-import { SHOW_ALL } from '../FilterConstatnts';
+import { DragDropContext } from 'react-beautiful-dnd';
+import {
+    getActive,
+    addTask,
+    reorder,
+    clearCompleted,
+} from '../redux/TasksSlice';
+import draggableWrap from '../DraggableWrapper';
+import Main from '../components/main/Main';
+import { setFilter } from '../redux/FilterSlice';
 
 export default function MainController() {
     const tasks = useSelector(getActive);
@@ -15,6 +19,10 @@ export default function MainController() {
     const dispatch = useDispatch();
 
     const [tempText, setTempText] = React.useState('');
+
+    const changeFilter = (filterValue) => dispatch(setFilter(filterValue));
+
+    const deleteCompleted = () => dispatch(clearCompleted());
 
     function addItem(event) {
         if (event.key === 'Enter' && event.target.value) {
@@ -34,25 +42,7 @@ export default function MainController() {
     }
 
     const taskLines = tasks.map((elem, index) => (
-        <Draggable draggableId={`${elem.id}`} index={index} key={elem.id}>
-            {(provided) => {
-                const style = filter !== SHOW_ALL ? { cursor: 'not-allowed' } : { };
-                const props = filter === SHOW_ALL && { ...provided.draggableProps };
-                return (
-                    <div
-                        ref={provided.innerRef}
-                        {...props}
-                        {...provided.dragHandleProps}
-                    >
-                        <TaskLine
-                            item={elem}
-                            style={style}
-                        />
-                    </div>
-                );
-            }}
-        </Draggable>
-
+        draggableWrap(filter, elem, index)
     ));
 
     function onDragEnd(result) {
@@ -65,15 +55,19 @@ export default function MainController() {
         }
         dispatch(reorder({ startIndex: result.source.index, endIndex: result.destination.index }));
     }
-
-    return (
+    const component = (
         <DragDropContext onDragEnd={onDragEnd}>
             <Main
                 changeText={changeText}
                 addItem={addItem}
                 tempText={tempText}
                 taskLines={taskLines}
+                changeFilter={changeFilter}
+                clearCompleted={deleteCompleted}
             />
         </DragDropContext>
+    );
+    return (
+        component
     );
 }

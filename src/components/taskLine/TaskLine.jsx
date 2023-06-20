@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import Check from './Check';
-import DeleteButton from './DeleteButton';
-import TaskLineCss from '../styles/TaskLine.module.scss';
-import { completeTask, deleteTask } from '../redux/TasksSlice';
+import Check from '../check/Check';
+import DeleteButton from '../deleteButton/DeleteButton';
+import TaskLineCss from './TaskLine.module.scss';
+import { completeTask, deleteTask } from '../../redux/TasksSlice';
 
 export default function TaskLine({ item, style }) {
     const dispatch = useDispatch();
