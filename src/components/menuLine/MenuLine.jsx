@@ -1,14 +1,10 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from '../redux/FilterSlice';
-import { clearCompleted } from '../redux/TasksSlice';
-import { SHOW_ACTIVE, SHOW_COMPLETED, SHOW_ALL } from '../FilterConstatnts';
-import MenuLineCss from '../styles/MenuLine.module.scss';
+import { SHOW_ACTIVE, SHOW_COMPLETED, SHOW_ALL } from '../../FilterConstatnts';
+import MenuLineCss from './MenuLine.module.scss';
 
-export default function MenuLine({ count }) {
-    const filter = useSelector((state) => state.filter.filter);
-    const dispatch = useDispatch();
-
+export default function MenuLine({
+    count, changeFilter, deleteCompleted, filter,
+}) {
     return (
         <div className={MenuLineCss.menuLine}>
             <div className={MenuLineCss.count}>
@@ -26,7 +22,7 @@ export default function MenuLine({ count }) {
                             ? MenuLineCss.filterStateActive
                             : MenuLineCss.filterState
                     }
-                    onClick={() => dispatch(setFilter(SHOW_ALL))}
+                    onClick={() => changeFilter(SHOW_ALL)}
                 >
                     All
                 </button>
@@ -37,7 +33,7 @@ export default function MenuLine({ count }) {
                             ? MenuLineCss.filterStateActive
                             : MenuLineCss.filterState
                     }
-                    onClick={() => dispatch(setFilter(SHOW_ACTIVE))}
+                    onClick={() => changeFilter(SHOW_ACTIVE)}
                 >
                     Active
                 </button>
@@ -46,7 +42,7 @@ export default function MenuLine({ count }) {
                     className={filter === SHOW_COMPLETED
                         ? MenuLineCss.filterStateActive
                         : MenuLineCss.filterState}
-                    onClick={() => dispatch(setFilter(SHOW_COMPLETED))}
+                    onClick={() => changeFilter(SHOW_COMPLETED)}
                 >
                     Completed
                 </button>
@@ -54,7 +50,7 @@ export default function MenuLine({ count }) {
             <button
                 type="button"
                 className={MenuLineCss.clearCompleted}
-                onClick={() => dispatch(clearCompleted())}
+                onClick={deleteCompleted}
             >
                 Clear Completed
             </button>

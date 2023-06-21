@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskInput component tests TaskInput Matches Snapshot 1`] = `
+<input
+  className="inputTask"
+  onChange={[MockFunction]}
+  onKeyUp={[MockFunction]}
+  placeholder="Enter your task and press ENTER"
+  type="text"
+  value="text"
+/>
+`;

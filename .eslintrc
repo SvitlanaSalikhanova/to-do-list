@@ -4,6 +4,9 @@
         "browser": true,
         "jest": true
     },
+    "globals": {
+      "cy": true
+    },
     "rules": {
         "linebreak-style": 0,
         "eslint linebreak-style": [0, "error", "windows"],
@@ -16,6 +19,10 @@
             "allowFunctions": true,
             "allowArrowFunctions": true
           }],
-          "react/jsx-props-no-spreading": "off"
+          "react/jsx-props-no-spreading": "off",
+          "import/no-extraneous-dependencies": [
+            "error",
+            {"devDependencies": true}
+          ]
     }
 }

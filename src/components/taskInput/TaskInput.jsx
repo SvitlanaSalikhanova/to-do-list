@@ -1,5 +1,5 @@
 import React from 'react';
-import TaskInputCss from '../styles/TaskInput.module.scss';
+import TaskInputCss from './TaskInput.module.scss';
 
 export default function TaskInput({ tempText, changeText, addItem }) {
     return (

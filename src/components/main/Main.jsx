@@ -1,12 +1,12 @@
 import React from 'react';
 import { Droppable } from 'react-beautiful-dnd';
-import MainCss from '../styles/Main.module.scss';
-import MenuLine from './MenuLine';
-import TaskInput from './TaskInput';
+import MainCss from './Main.module.scss';
+import MenuLine from '../menuLine/MenuLine';
+import TaskInput from '../taskInput/TaskInput';
 
 export default function Main(
     {
-        tempText, changeText, addItem, taskLines,
+        tempText, changeText, addItem, taskLines, changeFilter, clearCompleted,
     },
 ) {
     return (
@@ -23,7 +23,11 @@ export default function Main(
                     )}
                 </Droppable>
 
-                <MenuLine count={taskLines.length} />
+                <MenuLine
+                    count={taskLines.length}
+                    changeFilter={changeFilter}
+                    deleteCompleted={clearCompleted}
+                />
             </div>
         </div>
     );

@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskLine component tests TaskLine for Completed task Matches Snapshot 1`] = `null`;
+
+exports[`TaskLine component tests TaskLine for Uncompleted task Matches Snapshot 1`] = `null`;
