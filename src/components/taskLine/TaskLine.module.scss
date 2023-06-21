@@ -1,0 +1,37 @@
+.taskLine:hover .deleteBlock {
+    display: block;
+   }
+
+.deleteBlock {
+    display: none;
+}
+
+.taskLine {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 40px;
+    border-bottom: 1px solid lightgray;
+    margin:0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-weight: 400;
+    
+
+}
+
+.completedTaskText{
+    text-align: left;
+    color: lightgray;
+    text-decoration: line-through;
+    flex-grow: 1;
+    font-size: 13px;
+    word-wrap: break-word;
+}
+
+.uncompletedTaskText {
+    text-align: left;
+    flex-grow:1;
+    font-size: 13px;
+    word-wrap: break-word;
+}

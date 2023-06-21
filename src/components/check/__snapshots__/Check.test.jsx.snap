@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check component tests Checked Matches Snapshot 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="round"
+  >
+    <input
+      checked={false}
+      id="checkbox1"
+      onChange={[MockFunction]}
+      type="checkbox"
+    />
+    <label
+      htmlFor="checkbox1"
+    />
+  </div>
+</div>
+`;
+
+exports[`Check component tests Unchecked Matches Snapshot 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="round"
+  >
+    <input
+      checked={false}
+      id="checkbox1"
+      onChange={[MockFunction]}
+      type="checkbox"
+    />
+    <label
+      htmlFor="checkbox1"
+    />
+  </div>
+</div>
+`;

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuLine component tests MenuLine Matches Snapshot 1`] = `
+<div
+  className="menuLine"
+>
+  <div
+    className="count"
+  >
+    1
+     
+    item
+  </div>
+  <div
+    className="filters"
+  >
+    <button
+      className="filterState"
+      onClick={[Function]}
+      type="button"
+    >
+      All
+    </button>
+    <button
+      className="filterState"
+      onClick={[Function]}
+      type="button"
+    >
+      Active
+    </button>
+    <button
+      className="filterState"
+      onClick={[Function]}
+      type="button"
+    >
+      Completed
+    </button>
+  </div>
+  <button
+    className="clearCompleted"
+    onClick={[MockFunction]}
+    type="button"
+  >
+    Clear Completed
+  </button>
+</div>
+`;
