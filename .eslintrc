@@ -4,6 +4,9 @@
         "browser": true,
         "jest": true
     },
+    "globals": {
+      "cy": true
+    },
     "rules": {
         "linebreak-style": 0,
         "eslint linebreak-style": [0, "error", "windows"],
